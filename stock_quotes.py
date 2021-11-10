@@ -19,7 +19,7 @@ and even basic modelling (such as regression).
 The program should provide a comprehensive but easy to use and intuitive interface.
 
 """
-#import ystockquote  (or other packages of data)
+import ystockquote 
 
 
 def t_and_c():
@@ -48,19 +48,19 @@ def process_choice(choice):
            Print("Not a valid choice, try again.")
         choice = get_choice()
 
-#create a main menu for your stock quotes application
-display_welcome()
-display_menu()
-#ask user for their choice
-choice = get_choice()
-#process choice
-process_choice(choice)
+def main():
+    #create a main menu for your stock quotes application
+    display_welcome()
+    display_menu()
+    #ask user for their choice
+    choice = get_choice()
+    #process choice
+    process_choice(choice)
+    
+if __name__ == '__main__':
+    main()
 
-##Print(ystockquote.get_price_book('GOOGL')) example from import comment
-
-
-
-
+Print(ystockquote.get_price_book('GOOGL'))
 
 
 
