@@ -63,25 +63,3 @@ if __name__ == '__main__':
 Print(ystockquote.get_price_book('GOOGL'))
 
 
-
-
-
-
-#see companylist.csv and seaborn tutorial in week 7 folder
-# use OLS regresssion model to come up with r2
-
-#graphical UI is expected (lecture 8b in Brightspace)
-
-#tutorials 7 and 8 to use Yahoo finance
-
-#see stockquotes1.py
-#pandas.describe
-#check RMSE
-
-###Github
-#repository
-#clone repository
-#commit changes and pull changes
-#version control through github
-#final product- clone from git
-#pull, push, add, commit
