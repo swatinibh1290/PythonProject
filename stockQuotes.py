@@ -19,20 +19,50 @@ and even basic modelling (such as regression).
 The program should provide a comprehensive but easy to use and intuitive interface.
 
 """
+#import ystockquote  (or other packages of data)
 
-Print('Welcome to the Stock Quote Application')
+
+def t_and_c():
+    """Display lines of text: The Terms and Conditions from terms.txt"""
+    for line in open("terms.txt"):
+        print(line, end = "")
+        
+def display_welcome():
+    Print("Welcome to the Stock Quote Application")
 
 def display_menu():
-    print('Option 1: Gather Data')
-    print('Option 4: Quit')
+    Print("Option 1: Search Stocks/n2. Query Time Range/n3 Terms&Conditionsn/4 Quit")
+    
+def get_choice():
+    return input("Please choose an option: ")
 
-def main():
-    #display the menu
-    display_menu()
-    #ask the user for their choice
-    #display the user's choice
-if __name__ == "__main__":
-    main()
+def process_choice(choice):
+    while choice!= "4":
+        if choice == 1
+           Print("Search Stocks")
+        elif choice == 2
+           Print("Query Time Range")
+        elif choice == 3
+           t_and_c()
+        else: 
+           Print("Not a valid choice, try again.")
+        choice = get_choice()
+
+#create a main menu for your stock quotes application
+display_welcome()
+display_menu()
+#ask user for their choice
+choice = get_choice()
+#process choice
+process_choice(choice)
+
+##Print(ystockquote.get_price_book('GOOGL')) example from import comment
+
+
+
+
+
+
 
 
 
