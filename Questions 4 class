@@ -1,16 +1,17 @@
 Questions for class:
 
-"What is displayed when you choose option 1 Search Stock?" *
+"What is displayed when you choose option 1 Search Stock?" 
             Your choice, see examples on Bspace
-             *Current and all past info. graph, 
-             then predictive option Sub menu for prediction
+             ***Current and all past info. graph*** 
+             ***then predictive option Sub menu for prediction***
             
-"What should we use? **uni testing.
+"What should we use? 
+            **uni testing.**
                            
 "Downloaded vs. Ystockquote Data"
+            ***Downloaded, but ystockquote live is fine***
 
-Darrens Suggestions:
-            
+Darrens Suggestions:          
 *include user readbale error
 *Add a sub menu option (after step one, ask if you want a prediction)
-* 
+
