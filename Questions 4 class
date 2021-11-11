@@ -1,24 +1,16 @@
 Questions for class:
 
-Ask clarifying questions about the file path issues we found, if needed.      
-            
-
 "What is displayed when you choose option 1 Search Stock?" *
-            * Current and all past info. graph, then predictive option
+            *Current and all past info. graph, then predictive option
             Your choice, see examples on Bspace
                   Sub menu for prediction
             
-"What should we use, **uni testing to test our code.
-            
-            
-"Do you have any tips for our group on making a flow diagram for our code?"
-            
-                 
+"What should we use? **uni testing.
+                           
 "Downloaded vs. Ystockquote Data"
-            
-            * include user readbale error
-            
 
-      Then just a reminder for Me( Emma )...
-      "What command window is best, Powershell... CMD.exe... Regular... does it make a difference?" 
-      "What should I do if my anaconda apps wont launch? Go to IT?"
+Darrens Suggestions:
+            
+*include user readbale error
+*Add a sub menu option (after step one, ask if you want a prediction)
+* 
