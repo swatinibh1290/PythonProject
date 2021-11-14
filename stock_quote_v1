@@ -1,0 +1,118 @@
+"""
+Created on Sun Nov 9, 9:45 2021
+@author: Emma Matthews
+Your task is to write a computer program, 
+which allows users to consult/analyse/model stock times-series.
+It will source its data online, but should optimise the use of downloaded data,
+to avoid excessive networktraffic.
+Assume your users are advanced Business Analysts,
+but without programming knowledge. Theyshould have the possibility of 
+searching for specific stocks, and query specified time ranges, 
+along withassociated analysis, such as statistical descriptions of prices and/or volume
+(mean, median, range, etc),technical indicators, 
+visualisation (of the raw data, but also of transformations, such as moving averages),
+and even basic modelling (such as regression).
+The program should provide a comprehensive but easy to use and intuitive interface.
+"""
+# pip install yfinance
+# pip install ystockquote
+import ystockquote as ysq
+import yfinance as yf
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def get_companylist():
+    return pd.read_csv('company_list.csv')
+
+def search_stock(company_list):  
+    symbol = input('please type company symbol:')
+    result = company_list[(company_list.Symbol.str.lower().str.contains(symbol.lower()))| (company_list.Name.str.lower().str.contains(symbol.lower()))]
+    #print(type(result))
+    print(result[['Symbol','Name']])    # output company symbol and name
+    return result
+
+def get_historydata(filter_companylist):
+    # let index count from 0, but not the original index from companylist file
+    filter_companylist.index = range(len(filter_companylist))
+    
+    # change symbol dtype to str
+    a = filter_companylist['Symbol'][0]
+    
+    # create a stock object
+    stock_object = yf.Ticker(str(a))
+    
+    # get specific symbol data
+    history_data = stock_object.history(period = '1y')
+    print(history_data.head(5))
+    return history_data
+
+def draw_plot(hist, name):
+    # close, open, high price for a time period plot
+    hist['Close'].plot(label = 'Close',figsize=(16, 9))
+    
+    # Moving average plot
+    # calculate every 5/10/20/60 days average price
+    hist['MA5'] = hist['Close'].rolling(5).mean()
+    hist['MA10'] = hist['Close'].rolling(10).mean()
+    hist['MA20'] = hist['Close'].rolling(20).mean()
+    hist['MA60'] = hist['Close'].rolling(60).mean()
+    hist['MA5'].plot(figsize=(16,9),label = 'MA5')
+    hist['MA10'].plot(label = 'MA10')
+    hist['MA20'].plot(label = 'MA20')
+    hist['MA60'].plot(label = 'MA60')
+    
+    plt.show()
+    
+    # text for  average, standard deviation, range
+    print('Average price for ',name, 'is', round(hist['Close'].mean(),2))
+    print('Standard deviation for ', name, 'is', round(hist['Close'].std(),2))
+    print('Range for ', name, ' in a year is from ', round(hist['Close'].min(),2), 'to', round(hist['Close'].max(),2))
+    
+
+
+
+def t_and_c():
+    """Display lines of text: The Terms and Conditions from terms.txt"""
+    for line in open("terms.txt"):
+        print(line, end = "")
+        
+def display_welcome():
+    print("Welcome to the Stock Quote Application")
+
+def display_menu():
+    print("Option 1: Search Stocks/n2. Query Time Range/n3 Terms&Conditionsn/4 Quit")
+    
+def get_choice():
+    return input("Please choose an option: ")
+
+def process_choice(choice,company_list):
+    while choice!= "4":
+        if choice == '1':
+           print("Search Stocks")
+           symbol_result = search_stock(company_list)
+           hist = get_historydata(symbol_result)
+           draw_plot(hist,symbol_result['Name'][0])
+        elif choice == '2':
+           print("Query Time Range")
+           
+           
+        elif choice == '3':
+           t_and_c()
+        else: 
+           print("Not a valid choice, try again.")
+        choice = get_choice()
+
+def main():
+    company_list = get_companylist()
+    #create a main menu for your stock quotes application
+    display_welcome()
+    display_menu()
+    #ask user for their choice
+    choice = get_choice()
+    #process choice
+    process_choice(choice,company_list)
+    
+if __name__ == '__main__':
+    main()
+
+
