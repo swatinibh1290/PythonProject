@@ -1,4 +1,4 @@
-Descriptive: "Describe the current state of this stock" "Descriptive qualities of where the stock currently is"
-Predictive: "Predict where this stock will be at at a future date"
+Descriptive: "Describe the current state of this stock" "Show Descriptive qualities of where the stock is currently valued."
+Predictive: "Predict where this stock will be valued at at a future date"
 Regression:
 Non-Regression:
